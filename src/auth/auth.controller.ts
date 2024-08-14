@@ -1,4 +1,4 @@
-import { Controller, Post, UseGuards, Request, Get, HttpCode, HttpStatus, Body } from "@nestjs/common";
+import { Controller, Post, UseGuards, Request, Get, HttpCode, HttpStatus, Body, Query } from "@nestjs/common";
 import { AuthService } from "./auth.service";
 import { User } from "../users/entities";
 import { RegisterDto } from "../users/dto";
@@ -21,24 +21,24 @@ export class AuthController {
   @ApiOperation({summary: 'Log in', description: 'User login; returns a JWT token on success'})
   @ApiResponse({status: HttpStatus.OK, description: 'Success!'})
   public async login(@Request() req, @Body() body): Promise<User> {
-    console.log({reqUser : req.user})
-    console.log({body})
     return this.authService.login(req.user);
   }
-
   /**
    * the login
    * @param userData
    */
   @Post('register')
   @HttpCode(HttpStatus.CREATED)
-  public async register(@Body() userData: RegisterDto): Promise<User> {
+  public async register(@Body() userData: RegisterDto): Promise<any> {
     return this.authService.register(userData);
   }
 
-  @UseGuards(JwtAuthGuard)
-  @Get('profile')
-  getProfile(@Request() req) {
-    return req.user;
+  @Get('verify-email')
+  @HttpCode(HttpStatus.OK)
+  @ApiOperation({ summary: 'Verify Email' })
+  @ApiResponse({ status: HttpStatus.OK, description: 'Email verified successfully' })
+  public async verifyEmail(@Query('token') token: string): Promise<void> {
+    return this.authService.verifyEmail(token);
   }
+
 }

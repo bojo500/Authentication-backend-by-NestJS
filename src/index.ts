@@ -7,6 +7,7 @@ export const features = [
   AuthModule
 ]
 
+
 export const Entities = [
   CoreEntity
 ]

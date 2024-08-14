@@ -17,5 +17,7 @@ export class User  extends CoreEntity{
   @Column({ nullable: true })
   phoneNumber: string;
 
+  @Column({ default: false })
+  isVerified: boolean;
 }
 
