@@ -1,73 +1,117 @@
+
 <p align="center">
-  <a href="http://nestjs.com/" target="blank"><img src="https://nestjs.com/img/logo-small.svg" width="200" alt="Nest Logo" /></a>
+  <a href="https://nestjs.com/" target="blank"><img src="https://nestjs.com/img/logo-small.svg" width="200" alt="Project Logo" /></a>
 </p>
-
-[circleci-image]: https://img.shields.io/circleci/build/github/nestjs/nest/master?token=abc123def456
-[circleci-url]: https://circleci.com/gh/nestjs/nest
-
-  <p align="center">A progressive <a href="http://nodejs.org" target="_blank">Node.js</a> framework for building efficient and scalable server-side applications.</p>
-    <p align="center">
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/v/@nestjs/core.svg" alt="NPM Version" /></a>
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/l/@nestjs/core.svg" alt="Package License" /></a>
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/dm/@nestjs/common.svg" alt="NPM Downloads" /></a>
-<a href="https://circleci.com/gh/nestjs/nest" target="_blank"><img src="https://img.shields.io/circleci/build/github/nestjs/nest/master" alt="CircleCI" /></a>
-<a href="https://coveralls.io/github/nestjs/nest?branch=master" target="_blank"><img src="https://coveralls.io/repos/github/nestjs/nest/badge.svg?branch=master#9" alt="Coverage" /></a>
-<a href="https://discord.gg/G7Qnnhy" target="_blank"><img src="https://img.shields.io/badge/discord-online-brightgreen.svg" alt="Discord"/></a>
-<a href="https://opencollective.com/nest#backer" target="_blank"><img src="https://opencollective.com/nest/backers/badge.svg" alt="Backers on Open Collective" /></a>
-<a href="https://opencollective.com/nest#sponsor" target="_blank"><img src="https://opencollective.com/nest/sponsors/badge.svg" alt="Sponsors on Open Collective" /></a>
-  <a href="https://paypal.me/kamilmysliwiec" target="_blank"><img src="https://img.shields.io/badge/Donate-PayPal-ff3f59.svg"/></a>
-    <a href="https://opencollective.com/nest#sponsor"  target="_blank"><img src="https://img.shields.io/badge/Support%20us-Open%20Collective-41B883.svg" alt="Support us"></a>
-  <a href="https://twitter.com/nestframework" target="_blank"><img src="https://img.shields.io/twitter/follow/nestframework.svg?style=social&label=Follow"></a>
+<p align="center">
+  <a href="https://www.npmjs.com/package/your-package" target="_blank"><img src="photos/1.png" alt="NPM Version" /></a>
+  <a href="https://www.npmjs.com/package/your-package" target="_blank"><img src="photos/2.png" alt="Package License" /></a>
+  <a href="https://www.npmjs.com/package/your-package" target="_blank"><img src="photos/3.png" alt="NPM Downloads" /></a>
 </p>
-  <!--[![Backers on Open Collective](https://opencollective.com/nest/backers/badge.svg)](https://opencollective.com/nest#backer)
-  [![Sponsors on Open Collective](https://opencollective.com/nest/sponsors/badge.svg)](https://opencollective.com/nest#sponsor)-->
+<p align="center">
+  A powerful backend application with authentication and SendGrid integration.
+</p>
+Description
+This backend application is built with NestJS and provides a robust authentication system. It integrates with SendGrid for email functionalities such as user registration and verification.
 
-## Description
-
-[Nest](https://github.com/nestjs/nest) framework TypeScript starter repository.
-
-## Installation
-
+Features
+Authentication System: Register and log in users with secure password hashing.
+Email Verification: Send verification emails using SendGrid.
+JWT Authentication: Issue and validate JWT tokens for secure API access.
+# Installation
 ```bash
-$ yarn install
+# Clone the repository
+$ git clone https://github.com/yourusername/your-repository.git
+
+# Install dependencies
+$ cd your-repository
 ```
 
-## Running the app
-
+# Install dependencies
 ```bash
-# development
-$ yarn run start
+$ npm install
+```
+## Running the App
+```bash
+# Start the application
 
-# watch mode
-$ yarn run start:dev
-
-# production mode
-$ yarn run start:prod
+$ npm run start
+```
+## Development Mode
+```bash
+ $ npm run start:dev
 ```
 
-## Test
-
+## Production Mode
 ```bash
-# unit tests
-$ yarn run test
 
-# e2e tests
-$ yarn run test:e2e
-
-# test coverage
-$ yarn run test:cov
+ $ npm run start:prod
 ```
 
-## Support
+## **Environment Variables**
+Create a .env file in the root directory with the following variables:
+```bash
 
-Nest is an MIT-licensed open source project. It can grow thanks to the sponsors and support by the amazing backers. If you'd like to join them, please [read more here](https://docs.nestjs.com/support).
+ JWT_SECRET=your_jwt_secret
+ 
+ SENDGRID_API_KEY=your_sendgrid_api_key
+ 
+ BASE_URL=http://localhost:3000
+```
 
-## Stay in touch
+## API Endpoints
+-  User Registration
+- Endpoint: /auth/register
+- Method: POST
+- Request Body:
+```bash
+    {
+        "email": "user@example.com",
+        "password": "your-password"
+    }
+```
+Response:
+```bash
+    {
+        "message": "Registration successful. Please check your email to verify your account."
+    }
+```
 
-- Author - [Kamil Myśliwiec](https://kamilmysliwiec.com)
-- Website - [https://nestjs.com](https://nestjs.com/)
-- Twitter - [@nestframework](https://twitter.com/nestframework)
+### User Login
+- Endpoint: /auth/login
+- Method: POST 
+- Request Body:
+```bash
+    {
+        "email": "user@example.com",
+        "password": "your-password"
+    }
+```
+**Response**:
+```bash
+    {
+        "message": "Login successful",
+        "token": "your_jwt_token_here"
+    }
+```
 
-## License
+### Email Verification
+- Endpoint: /auth/verify-email
+- Method: GET
+- Query Parameters:
+```bash
+ token=your_verification_token
+```
+**Response**:
+```bash
+  {
+    "message": "Email successfully verified"
+  }
+````
+### **Screenshots**
 
-Nest is [MIT licensed](LICENSE).
+### **Support**
+This project is maintained by Your Name. If you’d like to contribute, please open an issue or submit a pull request.
+
+### **License**
+This project is licensed under the MIT License.
+
