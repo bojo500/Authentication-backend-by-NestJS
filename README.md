@@ -110,7 +110,7 @@ Response:
 ### **Screenshots**
 
 ### **Support**
-This project is maintained by Your Name. If you’d like to contribute, please open an issue or submit a pull request.
+This project is maintained by Mohamed Khaled. If you’d like to contribute, please open an issue or submit a pull request.
 
 ### **License**
 This project is licensed under the MIT License.
